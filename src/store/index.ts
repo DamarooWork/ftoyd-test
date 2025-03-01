@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit/src'
+import { configureStore } from '@reduxjs/toolkit'
 import { matchesApi } from './matches/matches.api'
 
 export const makeStore = () => {
