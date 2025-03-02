@@ -11,11 +11,15 @@ export default function DropListBtn() {
     >
       <span>Все статусы</span>
       <Image
+        className={`${
+          isOpen && 'rotate-180'
+        } transition-all duration-300 ease-out`}
         src={'/icons/dropListOpenIcon.png'}
         alt={'Open list icon'}
         width={12}
         height={6}
       />
+      <section className="absolute top-"></section>
     </button>
   )
 }
