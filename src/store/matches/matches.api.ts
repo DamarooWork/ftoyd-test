@@ -8,8 +8,8 @@ export const matchesApi = createApi({
   }),
   endpoints: (build) => ({
     getMatches: build.query<Root, string>({
-      query: (_something) => ({
-        url: `/fronttemp-service`,
+      query: (str) => ({
+        url: `/fronttemp-service${str}`,
       }),
     }),
   }),

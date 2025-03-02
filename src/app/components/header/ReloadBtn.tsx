@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 export default function ReloadBtn() {
   const [disabled, setDisabled] = useState(false)
-  const { isLoading, isError, data } = useGetMatchesQuery('')
+  const { isLoading } = useGetMatchesQuery('')
   const handleReloadBtnClick = () => {
     setDisabled(true)
     //  api запрос через CreateApi redux
