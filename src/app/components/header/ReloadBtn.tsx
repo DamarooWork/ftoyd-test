@@ -1,18 +1,18 @@
 'use client'
-import { useGetMatchesQuery } from '@/store/matches/matches.api'
+import { useLazyGetMatchesQuery } from '@/store/matches/matches.api'
 import { useState } from 'react'
 
 export default function ReloadBtn() {
-  const [disabled, setDisabled] = useState(false)
-  const { isLoading } = useGetMatchesQuery('')
+  const [trigger, { isLoading }] = useLazyGetMatchesQuery()
+  const [disabled, setDisabled] = useState(isLoading)
   const handleReloadBtnClick = () => {
     setDisabled(true)
     //  api запрос через CreateApi redux
-
-    setDisabled(isLoading)
-    // setTimeout(() => {
-    //   setDisabled(false)
-    // }, 1500)
+    setTimeout(() => {
+      //Добавил искуственную задержку для запроса, чтобы видно было анимацию (ошибка пропадает при запросе, если убрать задержку, и появляется, только если есть ошибка)
+      trigger()
+      setDisabled(isLoading)
+    }, 1000)
   }
   return (
     <button

@@ -1,0 +1,102 @@
+[
+  {
+      "id": 1,
+      "time": "2023-10-01T14:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "Finished"
+  },
+  {
+      "id": 2,
+      "time": "2023-10-02T16:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "Ongoing"
+  },
+  {
+      "id": 3,
+      "time": "2023-10-03T18:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "Scheduled"
+  },
+  {
+      "id": 4,
+      "time": "2023-10-04T20:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 4,
+      "awayScore": 3,
+      "status": "Finished"
+  },
+  {
+      "id": 5,
+      "time": "2023-10-05T15:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 0,
+      "awayScore": 5,
+      "status": "Finished"
+  },
+  {
+      "id": 6,
+      "time": "2023-10-06T17:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "Ongoing"
+  },
+  {
+      "id": 7,
+      "time": "2023-10-07T19:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "Scheduled"
+  },
+  {
+      "id": 8,
+      "time": "2023-10-08T21:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "Finished"
+  },
+  {
+      "id": 9,
+      "time": "2023-10-09T13:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 2,
+      "awayScore": 4,
+      "status": "Finished"
+  },
+  {
+      "id": 10,
+      "time": "2023-10-10T12:00:00",
+      "title": "Название матча",
+      "homeTeam": "Command №1",
+      "awayTeam": "Command №2",
+      "homeScore": 5,
+      "awayScore": 2,
+      "status": "Ongoing"
+  }
+]

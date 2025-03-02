@@ -1,0 +1,1 @@
+export const BASE_URL_API_FTOYD = 'https://app.ftoyd.com'
