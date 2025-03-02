@@ -13,3 +13,4 @@
 4. GSAP
 5. reduxjs/toolkit
 
+Deploy: https://ftoyd-test.vercel.app/
