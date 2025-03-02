@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import CardStatus, { CardStatusType } from './CardStatus'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import CardContent from './cardContent'
+import gsap from 'gsap'
 
 export interface ICardProps {
   id: number
@@ -15,11 +16,28 @@ export interface ICardProps {
 }
 export default function Card({ match }: { match: ICardProps }) {
   const [isOpen, setIsOpen] = useState(false)
+  const cardContentRef = useRef<HTMLElement>(null)
+  const handleCardClick = () => {
+    setIsOpen((prev) => !prev)
+    if (!isOpen) {
+      gsap.fromTo(
+        cardContentRef.current,
+        { opacity: 0, display: 'none', yPercent: -5 },
+        { opacity: 1, display: 'flex', duration: 0.3, yPercent: 0 }
+      )
+    } else {
+      gsap.fromTo(
+        cardContentRef.current,
+        { opacity: 1, display: 'flex' },
+        { opacity: 0, display: 'none' }
+      )
+    }
+  }
   return (
-    <details className="flex flex-col justify-center items-center cursor-pointer bg-[#0B0E12] rounded-sm p-4 ">
+    <details className="flex flex-col justify-center items-center  bg-[#0B0E12] rounded-sm  ">
       <summary
-        className="flex gap-2 items-center w-full "
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={handleCardClick}
+        className="flex gap-2 items-center w-full  cursor-pointer p-4"
       >
         <section className="flex justify-between items-center w-full">
           <section className="flex items-center gap-2">
@@ -48,14 +66,21 @@ export default function Card({ match }: { match: ICardProps }) {
           </section>
         </section>
         <Image
-          className={`${isOpen && 'rotate-180'}`}
+          className={`${
+            isOpen && 'rotate-180'
+          } transition-all duration-300 ease-out`}
           src={'/icons/cardOpenIcon.png'}
           alt={'cardOpenIcon'}
           width={14}
           height={7}
         />
       </summary>
-      {isOpen && <CardContent />}
+      <section
+        ref={cardContentRef}
+        className="hidden justify-center items-center gap-8 min-h-[136px]  p-7   "
+      >
+        <CardContent />
+      </section>
     </details>
   )
 }

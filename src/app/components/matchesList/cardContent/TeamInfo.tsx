@@ -3,7 +3,7 @@ import UserInfo from './UserInfo'
 
 export default function TeamInfo() {
   return (
-    <section className="flex flex-col justify-between items-center gap-2 ">
+    <section className="flex flex-col justify-between items-center gap-2  ">
       <section className="flex justify-center items-center gap-2 ">
         <UserInfo />
         <UserInfo />
