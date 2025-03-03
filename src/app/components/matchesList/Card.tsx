@@ -51,7 +51,7 @@ export default function Card({ match }: { match: Match }) {
         <section className="flex justify-between items-center w-full">
           <section className="flex items-center gap-2">
             <Image
-              className=" max-sm:w-7 max-sm:h-7"
+              className=" max-sm:w-7 max-sm:h-7 w-12 h-auto max-w-none"
               src="/icons/teamLogoBase.png"
               alt={'Team logo'}
               width={48}
@@ -68,7 +68,7 @@ export default function Card({ match }: { match: Match }) {
           <section className="flex items-center gap-2">
             <h3 className="text-nowrap">{match.awayTeam.name}</h3>
             <Image
-              className=" max-sm:w-7 max-sm:h-7 "
+              className=" max-sm:w-7 max-sm:h-7  "
               src="/icons/teamLogoBase.png"
               alt={'Team logo'}
               width={48}
