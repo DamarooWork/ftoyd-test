@@ -12,5 +12,7 @@
 3. Typescript
 4. GSAP
 5. reduxjs/toolkit
+6. socket.io-client
+7. react-loader-spinner
 
 Deploy: https://ftoyd-test.vercel.app/
