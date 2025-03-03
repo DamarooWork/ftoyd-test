@@ -1,4 +1,8 @@
-export default function TeamStat() {
+interface IStatProp {
+  title: string
+  value: string
+}
+export default function TeamStat({stat}: {stat: IStatProp}) {
   return (
     <section className="flex justify-center items-center gap-2 ">
       <span className="text-[14px] font-medium opacity-40">Место</span>

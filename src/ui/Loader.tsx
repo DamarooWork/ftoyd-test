@@ -8,7 +8,7 @@ export default function Loader() {
       color="#fff"
       ariaLabel="oval-loading"
       wrapperStyle={{}}
-      wrapperClass="justify-center items-center mt-10"
+      wrapperClass="flex justify-center items-center mt-10"
     />
   )
 }

@@ -1,25 +1,26 @@
 'use client'
 import { useGetMatchesQuery } from '@/store/matches/matches.api'
 import _matches from '@/lib/data/teamsForTest.json'
-import Card, { ICardProps } from './Card'
+import Card from './Card'
 import Loader from '@/ui/Loader'
 import { useAppSelector } from '@/store/hooks'
 import { useEffect, useState } from 'react'
+import { IMatch } from '@/app/models/testAPI'
 export default function MatchesList() {
   // api запрос через CreateApi redux'a const { isLoading, isError, data } = useGetMatchesQuery()
   const { isLoading } = useGetMatchesQuery()
   const { filter } = useAppSelector((state) => state.filter)
-  const [matches, setMatches] = useState(_matches as ICardProps[])
+  const [matches, setMatches] = useState(_matches as IMatch[])
   useEffect(() => {
     switch (filter) {
       case 'Все статусы':
-        setMatches(_matches as ICardProps[])
+        setMatches(_matches as IMatch[])
         break
       default:
         console.log(filter, _matches)
 
         setMatches(
-          _matches.filter((match) => match.status === filter) as ICardProps[]
+          _matches.filter((match) => match.status === filter) as IMatch[]
         )
     }
   }, [filter])

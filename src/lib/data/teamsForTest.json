@@ -1,102 +1,882 @@
 [
-  {
-      "id": 1,
-      "time": "2023-10-01T14:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 3,
-      "awayScore": 1,
-      "status": "Finished"
-  },
-  {
-      "id": 2,
-      "time": "2023-10-02T16:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 2,
-      "awayScore": 2,
-      "status": "Ongoing"
-  },
-  {
-      "id": 3,
-      "time": "2023-10-03T18:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 1,
-      "awayScore": 0,
-      "status": "Scheduled"
-  },
-  {
-      "id": 4,
-      "time": "2023-10-04T20:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 4,
-      "awayScore": 3,
-      "status": "Finished"
-  },
-  {
-      "id": 5,
-      "time": "2023-10-05T15:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 0,
-      "awayScore": 5,
-      "status": "Finished"
-  },
-  {
-      "id": 6,
-      "time": "2023-10-06T17:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 2,
-      "awayScore": 1,
-      "status": "Ongoing"
-  },
-  {
-      "id": 7,
-      "time": "2023-10-07T19:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 3,
-      "awayScore": 3,
-      "status": "Scheduled"
-  },
-  {
-      "id": 8,
-      "time": "2023-10-08T21:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 1,
-      "awayScore": 2,
-      "status": "Finished"
-  },
-  {
-      "id": 9,
-      "time": "2023-10-09T13:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 2,
-      "awayScore": 4,
-      "status": "Finished"
-  },
-  {
-      "id": 10,
-      "time": "2023-10-10T12:00:00",
-      "title": "Название матча",
-      "homeTeam": "Command №1",
-      "awayTeam": "Command №2",
-      "homeScore": 5,
-      "awayScore": 2,
-      "status": "Ongoing"
-  }
+    {
+        "id": 1,
+        "time": "2023-10-01T14:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 3,
+        "awayScore": 1,
+        "status": "Finished",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Warrior1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                },
+                {
+                    "Nickname": "Mage2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                },
+                {
+                    "Nickname": "Rogue3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 6
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+45"
+                },
+                {
+                    "title": "Место",
+                    "value": "12"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "12"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Hunter1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                },
+                {
+                    "Nickname": "Paladin4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                },
+                {
+                    "Nickname": "Necromancer5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+30"
+                },
+                {
+                    "title": "Место",
+                    "value": "20"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "4"
+                }
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "time": "2023-10-02T16:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 2,
+        "awayScore": 2,
+        "status": "Ongoing",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Knight1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 7
+                    }
+                },
+                {
+                    "Nickname": "Wizard2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                },
+                {
+                    "Nickname": "Druid3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+50"
+                },
+                {
+                    "title": "Место",
+                    "value": "5"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "14"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Sorcerer1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                },
+                {
+                    "Nickname": "Thief2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                },
+                {
+                    "Nickname": "Berserker3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+40"
+                },
+                {
+                    "title": "Место",
+                    "value": "10"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "4"
+                }
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "time": "2023-10-03T18:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 1,
+        "awayScore": 0,
+        "status": "Scheduled",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Viking1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Summoner2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Assassin3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+15"
+                },
+                {
+                    "title": "Место",
+                    "value": "8"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "10"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Ranger1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                },
+                {
+                    "Nickname": "Cleric2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                },
+                {
+                    "Nickname": "Alchemist3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+10"
+                },
+                {
+                    "title": "Место",
+                    "value": "25"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "0"
+                }
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "time": "2023-10-04T20:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 4,
+        "awayScore": 3,
+        "status": "Finished",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Gladiator1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 6
+                    }
+                },
+                {
+                    "Nickname": "Witch2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                },
+                {
+                    "Nickname": "Paladin3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+80"
+                },
+                {
+                    "title": "Место",
+                    "value": "3"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "15"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Sorcerer1",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                },
+                {
+                    "Nickname": "Thief2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                },
+                {
+                    "Nickname": "Berserker3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+40"
+                },
+                {
+                    "title": "Место",
+                    "value": "10"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "3"
+                }
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "time": "2023-10-05T15:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 0,
+        "awayScore": 5,
+        "status": "Finished",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Warrior4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Mage5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Rogue6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+1"
+                },
+                {
+                    "title": "Место",
+                    "value": "100"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "8"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Hunter4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                },
+                {
+                    "Nickname": "Paladin5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Necromancer6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+100"
+                },
+                {
+                    "title": "Место",
+                    "value": "1"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "6"
+                }
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "time": "2023-10-06T17:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 2,
+        "awayScore": 1,
+        "status": "Ongoing",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Knight4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Wizard5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Druid6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+60"
+                },
+                {
+                    "title": "Место",
+                    "value": "4"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "12"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Sorcerer4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                },
+                {
+                    "Nickname": "Thief5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                },
+                {
+                    "Nickname": "Berserker6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+20"
+                },
+                {
+                    "title": "Место",
+                    "value": "15"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "2"
+                }
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "time": "2023-10-07T19:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 3,
+        "awayScore": 3,
+        "status": "Scheduled",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Viking2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 8
+                    }
+                },
+                {
+                    "Nickname": "Summoner4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Assassin4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+78"
+                },
+                {
+                    "title": "Место",
+                    "value": "4"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "17"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Ranger2",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Cleric3",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                },
+                {
+                    "Nickname": "Alchemist4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+70"
+                },
+                {
+                    "title": "Место",
+                    "value": "8"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "5"
+                }
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "time": "2023-10-08T21:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 1,
+        "awayScore": 2,
+        "status": "Finished",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Gladiator4",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Witch5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 6
+                    }
+                },
+                {
+                    "Nickname": "Paladin6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+40"
+                },
+                {
+                    "title": "Место",
+                    "value": "15"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "12"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Sorcerer5",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                },
+                {
+                    "Nickname": "Thief6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Berserker7",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+80"
+                },
+                {
+                    "title": "Место",
+                    "value": "2"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "7"
+                }
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "time": "2023-10-09T13:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 2,
+        "awayScore": 4,
+        "status": "Finished",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Knight7",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                },
+                {
+                    "Nickname": "Wizard8",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                },
+                {
+                    "Nickname": "Druid9",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+51"
+                },
+                {
+                    "title": "Место",
+                    "value": "6"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "9"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Sorcerer6",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Thief7",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 2
+                    }
+                },
+                {
+                    "Nickname": "Berserker8",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 4
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+90"
+                },
+                {
+                    "title": "Место",
+                    "value": "3"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "11"
+                }
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "time": "2023-10-10T12:00:00",
+        "title": "Название матча",
+        "homeTeam": "Command №1",
+        "awayTeam": "Command №2",
+        "homeScore": 5,
+        "awayScore": 2,
+        "status": "Ongoing",
+        "homeTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Viking10",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 5
+                    }
+                },
+                {
+                    "Nickname": "Summoner10",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 6
+                    }
+                },
+                {
+                    "Nickname": "Assassin10",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 3
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+70"
+                },
+                {
+                    "title": "Место",
+                    "value": "4"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "14"
+                }
+            ]
+        },
+        "awayTeamStat": {
+            "Players": [
+                {
+                    "Nickname": "Ranger10",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                },
+                {
+                    "Nickname": "Cleric10",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 0
+                    }
+                },
+                {
+                    "Nickname": "Alchemist10",
+                    "stat": {
+                        "title": "Убийств",
+                        "value": 1
+                    }
+                }
+            ],
+            "TeamStat": [
+                {
+                    "title": "Points",
+                    "value": "+10"
+                },
+                {
+                    "title": "Место",
+                    "value": "20"
+                },
+                {
+                    "title": "Убийств",
+                    "value": "2"
+                }
+            ]
+        }
+    }
 ]

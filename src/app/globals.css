@@ -13,5 +13,5 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  overflow-y: hidden;
+  overflow-x: hidden;
 }

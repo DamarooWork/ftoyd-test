@@ -1,7 +1,8 @@
+import { TeamAndPlayersStat } from '@/app/models/testAPI'
 import StatInfo from './StatInfo'
 import UserInfo from './UserInfo'
 
-export default function TeamInfo() {
+export default function TeamInfo({TeamAndPlayersStat}: {TeamAndPlayersStat: TeamAndPlayersStat}) {
   return (
     <section className="flex flex-col gap-2">
       <section className="flex gap-2">
