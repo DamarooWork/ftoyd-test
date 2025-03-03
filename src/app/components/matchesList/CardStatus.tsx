@@ -1,4 +1,4 @@
-import { CardStatusType } from "@/app/models/testAPI"
+import { CardStatusType } from "@/app/models/api.matches"
 
 
 export default function CardStatus({ status }: { status: CardStatusType }) {
@@ -21,6 +21,12 @@ export default function CardStatus({ status }: { status: CardStatusType }) {
       return (
         <section className={`${CardStatusClasses} bg-[#EB6402]`}>
           <span className={CardStatusTextClasses}>Match preparing</span>
+        </section>
+      )
+    default:
+      return (
+        <section className={`${CardStatusClasses} bg-[#470b0b]`}>
+          <span className={CardStatusTextClasses}>Нет данных</span>
         </section>
       )
   }

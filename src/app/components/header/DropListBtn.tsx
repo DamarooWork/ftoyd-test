@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 import { useDispatch } from 'react-redux'
-import { CardStatusType } from '@/app/models/testAPI'
+import { CardStatusType } from '@/app/models/api.matches'
 interface IDropItem {
   id: number
   value: string
@@ -41,7 +41,7 @@ export default function DropListBtn() {
   return (
     <section
       ref={DropListBtnRef}
-      className="relative w-full sm:min-w-[170px] h-[56px] "
+      className="relative w-full md:min-w-[170px] h-[56px] "
     >
       <button
         className="relative flex w-full  h-[56px]  items-center gap-3 cursor-pointer transition-colors duration-300 ease-out  rounded-sm py-[10px] pl-5 pr-10 bg-[#0B0E12] text-[#B4B5B6] hover:text-white hover:bg-[#0F1318] active:border-[#171D25] border-[1px] border-[#0B0E12] active:bg-[#0B0E12] box-border overflow-hidden"
@@ -51,7 +51,7 @@ export default function DropListBtn() {
         <Image
           className={`${
             isOpen && 'rotate-180'
-          } transition-all duration-300 ease-out absolute top-1/2 right-5 -translate-y-1/2`}
+          } transition-all duration-300 ease-out absolute top-1/2 right-5 -translate-y-1/2  h-[6px] w-[12px]`}
           src={'/icons/dropListOpenIcon.png'}
           alt={'Open list icon'}
           width={12}

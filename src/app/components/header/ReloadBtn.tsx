@@ -7,12 +7,10 @@ export default function ReloadBtn() {
   const [disabled, setDisabled] = useState(isLoading)
   const handleReloadBtnClick = () => {
     setDisabled(true)
-    //  api запрос через CreateApi redux
     setTimeout(() => {
-      //Добавил искуственную задержку для запроса, чтобы видно было анимацию (ошибка пропадает при запросе, если убрать задержку, и появляется, только если есть ошибка)
       trigger()
       setDisabled(isLoading)
-    }, 1000)
+    }, 100)
   }
   return (
     <button

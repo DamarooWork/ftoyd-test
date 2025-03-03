@@ -1,3 +1,5 @@
+import { CardStatusType } from "./api.matches"
+
 export interface IMatch {
   id: number
   time: string
@@ -10,7 +12,7 @@ export interface IMatch {
   homeTeamAndPlayersStat: TeamAndPlayersStat
   awayTeamAndPlayersStat: TeamAndPlayersStat
 }
-export type CardStatusType = 'Scheduled' | 'Ongoing' | 'Finished'
+
 
 export interface TeamAndPlayersStat {
   Players: Player[]

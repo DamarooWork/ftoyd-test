@@ -5,20 +5,21 @@ import Card from './Card'
 import Loader from '@/ui/Loader'
 import { useAppSelector } from '@/store/hooks'
 import { useEffect, useState } from 'react'
-import { IMatch } from '@/app/models/testAPI'
+import { Match } from '@/app/models/api.matches'
 export default function MatchesList() {
-  // api запрос через CreateApi redux'a const { isLoading, isError, data } = useGetMatchesQuery()
-  const { isLoading } = useGetMatchesQuery()
+  const { isLoading, isError, data } = useGetMatchesQuery()
   const { filter } = useAppSelector((state) => state.filter)
-  const [matches, setMatches] = useState(_matches as IMatch[])
+  const [filteredMatches, setFilteredMatches] = useState([] as Match[])
   useEffect(() => {
     switch (filter) {
       case 'Все статусы':
-        setMatches(_matches as IMatch[])
+        setFilteredMatches([] as Match[])
         break
       default:
-        setMatches(
-          _matches.filter((match) => match.status === filter) as IMatch[]
+        setFilteredMatches(
+          data?.data.matches.filter(
+            (match) => match.status === filter
+          ) as Match[]
         )
     }
   }, [filter])
@@ -26,12 +27,26 @@ export default function MatchesList() {
     <>
       {isLoading ? (
         <Loader />
-      ) : (
+      ) : isError ? (
+        <section>
+          <p>Ошибка</p>
+        </section>
+      ) : filteredMatches.length !== 0 ? (
         <ul className="flex flex-col gap-4 mt-5">
-          {matches.map((match) => (
-            <Card key={match.id} match={match} />
+          {filteredMatches.map((match) => (
+            <Card key={match.time} match={match} />
           ))}
         </ul>
+      ) : data && data?.data.matches.length !== 0 ? (
+        <ul className="flex flex-col gap-4 mt-5">
+          {data?.data.matches.map((match) => (
+            <Card key={match.time} match={match} />
+          ))}
+        </ul>
+      ) : (
+        <section>
+          <p>Нет матчей</p>
+        </section>
       )}
     </>
   )

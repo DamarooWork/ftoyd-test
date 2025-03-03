@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import StatInfo from './StatInfo'
-import { Player } from '@/app/models/testAPI'
+import { Player } from '@/app/models/api.matches'
 
 export default function UserInfo({ player }: { player: Player }) {
   return (
@@ -13,10 +13,10 @@ export default function UserInfo({ player }: { player: Player }) {
           height={36}
         />
         <p className="font-semibold leading-6 text-nowrap text-center text-ellipsis overflow-hidden whitespace-nowrap">
-          {player.nickname}
+          {player.username}
         </p>
       </section>
-      <StatInfo stat={player.stat} />
+      <StatInfo title={'Убийств'} stat={player.kills} />
     </section>
   )
 }

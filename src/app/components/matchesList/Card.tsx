@@ -1,15 +1,16 @@
 import Image from 'next/image'
 import CardStatus from './CardStatus'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import CardContent from './cardContent'
 import gsap from 'gsap'
 import useDeviceSize from '@/lib/hooks/useDeviceSize'
-import { IMatch } from '@/app/models/testAPI'
+import { Match } from '@/app/models/api.matches'
 
-export default function Card({ match }: { match: IMatch }) {
+export default function Card({ match }: { match: Match }) {
   const [width] = useDeviceSize()
   const [isOpen, setIsOpen] = useState(false)
   const cardContentRef = useRef<HTMLElement>(null)
+  const scoreRef = useRef<HTMLSpanElement>(null)
   const handleCardClick = () => {
     setIsOpen((prev) => !prev)
     if (!isOpen) {
@@ -26,6 +27,21 @@ export default function Card({ match }: { match: IMatch }) {
       )
     }
   }
+  useEffect(() => {
+    const tlScore = gsap.timeline({})
+    tlScore.fromTo(
+      scoreRef.current,
+      { scale: 1, opacity: 0 },
+      { scale: 1.2, duration: 0.3, opacity: 1 }
+    )
+    tlScore.fromTo(
+      scoreRef.current,
+      { scale: 1.2 },
+      { scale: 1, ease: 'expo.inOut', duration: 0.5 },
+      '>+0.3'
+    )
+  }, [match.homeScore, match.awayScore])
+
   return (
     <section
       onClick={handleCardClick}
@@ -41,18 +57,18 @@ export default function Card({ match }: { match: IMatch }) {
               width={48}
               height={48}
             />
-            <h3 className="text-nowrap">{match.homeTeam}</h3>
+            <h3 className="text-nowrap">{match.homeTeam.name}</h3>
           </section>
           <section className="flex flex-col items-center gap-2">
-            <span className="text-xl">
+            <span ref={scoreRef} className="text-xl will-change-transform">
               {match.homeScore} : {match.awayScore}
             </span>
             <CardStatus status={match.status} />
           </section>
           <section className="flex items-center gap-2">
-            <h3 className="text-nowrap">{match.awayTeam}</h3>
+            <h3 className="text-nowrap">{match.awayTeam.name}</h3>
             <Image
-              className=" max-sm:w-7 max-sm:h-7"
+              className=" max-sm:w-7 max-sm:h-7 "
               src="/icons/teamLogoBase.png"
               alt={'Team logo'}
               width={48}
@@ -64,7 +80,7 @@ export default function Card({ match }: { match: IMatch }) {
           <Image
             className={`${
               isOpen && 'rotate-180'
-            } transition-all duration-300 ease-out`}
+            } transition-all duration-300 ease-out h-[7px] w-[14px]`}
             src={'/icons/cardOpenIcon.png'}
             alt={'cardOpenIcon'}
             width={14}
@@ -77,15 +93,12 @@ export default function Card({ match }: { match: IMatch }) {
         ref={cardContentRef}
         className="hidden max-lg:flex-col justify-center items-center gap-4 lg:gap-8 min-h-[136px] max-lg:p-4 p-7 w-full"
       >
-        <CardContent
-          homeTeamAndPlayersStat={match.homeTeamAndPlayersStat}
-          awayTeamAndPlayersStat={match.awayTeamAndPlayersStat}
-        />
+        <CardContent homeTeam={match.homeTeam} awayTeam={match.awayTeam} />
       </section>
       {width < 1024 && isOpen && (
         <div className="w-full flex justify-center py-4 cursor-pointer">
           <Image
-            className={`rotate-180 transition-all duration-300 ease-out`}
+            className={`rotate-180 transition-all duration-300 ease-out h-[7px] w-[14px]`}
             src={'/icons/cardOpenIcon.png'}
             alt={'cardOpenIcon'}
             width={14}

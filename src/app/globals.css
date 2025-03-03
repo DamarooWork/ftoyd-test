@@ -15,3 +15,9 @@ body {
   background: var(--background);
   overflow-x: hidden;
 }
+@layer base {
+  img {
+    width: auto;
+    height: auto;
+  }
+}

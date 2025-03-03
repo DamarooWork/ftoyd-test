@@ -1,12 +1,18 @@
 import useDeviceSize from '@/lib/hooks/useDeviceSize'
 import TeamInfo from './TeamInfo'
-import { TeamAndPlayersStat } from '@/app/models/testAPI'
+import { Team } from '@/app/models/api.matches'
 
-export default function CardContent({homeTeamAndPlayersStat, awayTeamAndPlayersStat}: {homeTeamAndPlayersStat: TeamAndPlayersStat, awayTeamAndPlayersStat: TeamAndPlayersStat}) {
+export default function CardContent({
+  homeTeam,
+  awayTeam,
+}: {
+  homeTeam: Team
+  awayTeam: Team
+}) {
   const [width] = useDeviceSize()
   return (
     <>
-      <TeamInfo teamAndPlayersStat={homeTeamAndPlayersStat} />
+      <TeamInfo team={homeTeam} />
       {width < 1024 && (
         <section className="relative text-[#313A47] flex justify-center items-center min-w-full gap-2">
           <div className="flex-1/2 min-h-[1px] bg-[#13181F] "></div>
@@ -15,7 +21,7 @@ export default function CardContent({homeTeamAndPlayersStat, awayTeamAndPlayersS
           <div className="flex-1/2 min-h-[1px] bg-[#13181F] "></div>
         </section>
       )}
-      <TeamInfo teamAndPlayersStat={awayTeamAndPlayersStat} />
+      <TeamInfo team={awayTeam} />
     </>
   )
 }

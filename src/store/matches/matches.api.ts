@@ -1,4 +1,4 @@
-import { Root } from '@/app/models/api.matches'
+import { MatchesAPI } from '@/app/models/api.matches'
 import { BASE_URL_API_FTOYD } from '@/lib/constants'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
@@ -8,9 +8,9 @@ export const matchesApi = createApi({
     baseUrl: BASE_URL_API_FTOYD,
   }),
   endpoints: (build) => ({
-    getMatches: build.query<Root, void>({
+    getMatches: build.query<MatchesAPI, void>({
       query: () => ({
-        url: `/fronttemp-service`,
+        url: `/fronttemp-service/fronttemp`,
       }),
     }),
   }),

@@ -9,7 +9,7 @@ const myFont = localFont({
 export default function Header() {
   return (
     <header className="flex flex-col md:flex-row justify-between  items-center gap-4">
-      <hgroup className="flex max-lg:justify-center justify-start items-center flex-wrap gap-4 max-sm:w-full">
+      <hgroup className="flex flex-col lg:flex-row max-lg:justify-center justify-start items-center  gap-4 max-md:w-full">
         <h1
           className={`${myFont.className} italic text-[32px] leading-[32px] text-nowrap`}
         >
