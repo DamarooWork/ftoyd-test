@@ -1,6 +1,5 @@
 'use client'
 import { useGetMatchesQuery } from '@/store/matches/matches.api'
-import _matches from '@/lib/data/teamsForTest.json'
 import Card from './Card'
 import Loader from '@/ui/Loader'
 import { useAppSelector } from '@/store/hooks'
@@ -22,7 +21,7 @@ export default function MatchesList() {
           ) as Match[]
         )
     }
-  }, [filter])
+  }, [filter, data?.data.matches])
   return (
     <>
       {isLoading ? (
