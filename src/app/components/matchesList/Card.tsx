@@ -6,7 +6,6 @@ import gsap from 'gsap'
 import useDeviceSize from '@/lib/hooks/useDeviceSize'
 import { IMatch } from '@/app/models/testAPI'
 
-
 export default function Card({ match }: { match: IMatch }) {
   const [width] = useDeviceSize()
   const [isOpen, setIsOpen] = useState(false)
@@ -76,9 +75,12 @@ export default function Card({ match }: { match: IMatch }) {
 
       <section
         ref={cardContentRef}
-        className="hidden max-lg:flex-col justify-start items-center gap-4 lg:gap-8 min-h-[136px] max-lg:p-4 p-7 w-full"
+        className="hidden max-lg:flex-col justify-center items-center gap-4 lg:gap-8 min-h-[136px] max-lg:p-4 p-7 w-full"
       >
-        <CardContent homeTeamStat={match.homeTeamStat} awayTeamStat={match.awayTeamStat}  />
+        <CardContent
+          homeTeamAndPlayersStat={match.homeTeamAndPlayersStat}
+          awayTeamAndPlayersStat={match.awayTeamAndPlayersStat}
+        />
       </section>
       {width < 1024 && isOpen && (
         <div className="w-full flex justify-center py-4 cursor-pointer">

@@ -14,20 +14,17 @@ export type CardStatusType = 'Scheduled' | 'Ongoing' | 'Finished'
 
 export interface TeamAndPlayersStat {
   Players: Player[]
-  TeamStat: TeamStat[]
+  TeamStat: Stat[]
 }
 
 export interface Player {
-  Nickname: string
+  nickname: string
   stat: Stat
 }
 
 export interface Stat {
   title: string
-  value: number
+  value: number | string
 }
 
-export interface TeamStat {
-  title: string
-  value: string
-}
+

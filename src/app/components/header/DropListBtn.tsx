@@ -3,8 +3,8 @@ import { changeFilter } from '@/store/matches/filterSlice'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
-import { CardStatusType } from '../matchesList/CardStatus'
 import { useDispatch } from 'react-redux'
+import { CardStatusType } from '@/app/models/testAPI'
 interface IDropItem {
   id: number
   value: string

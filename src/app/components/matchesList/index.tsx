@@ -17,8 +17,6 @@ export default function MatchesList() {
         setMatches(_matches as IMatch[])
         break
       default:
-        console.log(filter, _matches)
-
         setMatches(
           _matches.filter((match) => match.status === filter) as IMatch[]
         )
