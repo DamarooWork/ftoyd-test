@@ -1,4 +1,4 @@
-import { CardStatusType } from '@/app/components/matchesList/CardStatus'
+import { CardStatusType } from '@/app/models/testAPI'
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
