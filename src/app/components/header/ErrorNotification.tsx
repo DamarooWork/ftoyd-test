@@ -6,10 +6,9 @@ export default function ErrorNotification() {
   return (
     <>
       {isError ? (
-        <section className="flex h-[56px] justify-center items-center font-medium gap-3 rounded-sm p-4 bg-[#0F1318]">
+        <section className="flex max-sm:w-full  h-[56px] justify-center items-center font-medium max-sm:gap-1 gap-3 rounded-sm max-sm:p-2 p-4 bg-[#0F1318] overflow-hidden">
           <svg
-            width="28"
-            height="28"
+            className="max-sm:w-4 max-sm:h-4 w-7 h-7"
             viewBox="0 0 28 28"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +22,9 @@ export default function ErrorNotification() {
             />
           </svg>
 
-          <span>Ошибка: не удалось загрузить информацию</span>
+          <span className="text-center text-nowrap max-sm:text-sm">
+            Ошибка: не удалось загрузить информацию
+          </span>
         </section>
       ) : null}
     </>

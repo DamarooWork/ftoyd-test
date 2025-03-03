@@ -4,9 +4,14 @@
   --background: #090909;
   --foreground: #ededed;
 }
-
+html {
+  font-size: 14px;
+  @media (min-width: 640px) {
+    font-size: 16px;
+  }
+}
 body {
   color: var(--foreground);
   background: var(--background);
-
+  overflow-y: hidden;
 }

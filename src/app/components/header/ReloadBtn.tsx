@@ -18,7 +18,7 @@ export default function ReloadBtn() {
     <button
       disabled={disabled}
       onClick={handleReloadBtnClick}
-      className="flex w-[204px] h-[56px] justify-center items-center font-semibold gap-3 cursor-pointer  rounded-sm p-4 bg-[#EB0237] active:bg-[#A01131] disabled:bg-[#701328] disabled:cursor-not-allowed"
+      className="flex max-sm:w-full w-[204px] h-[56px] justify-center items-center font-semibold gap-3 cursor-pointer  rounded-sm p-4 bg-[#EB0237] active:bg-[#A01131] disabled:bg-[#701328] disabled:cursor-not-allowed"
     >
       <span>Обновить</span>
       <svg

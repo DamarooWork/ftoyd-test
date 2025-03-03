@@ -34,7 +34,7 @@ export default function Card({ match }: { match: ICardProps }) {
     }
   }
   return (
-    <details className="flex flex-col justify-center items-center  bg-[#0B0E12] rounded-sm  ">
+    <details className="flex flex-col justify-center items-center  bg-[#0B0E12] rounded-sm min-w-full">
       <summary
         onClick={handleCardClick}
         className="flex gap-2 items-center w-full  cursor-pointer p-4"
@@ -77,7 +77,7 @@ export default function Card({ match }: { match: ICardProps }) {
       </summary>
       <section
         ref={cardContentRef}
-        className="hidden justify-center items-center gap-8 min-h-[136px]  p-7   "
+        className="hidden justify-start items-center  gap-8 min-h-[136px] p-7 w-full"
       >
         <CardContent />
       </section>
