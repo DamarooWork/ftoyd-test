@@ -3,47 +3,56 @@ import { useGetMatchesQuery } from '@/store/matches/matches.api'
 import Card from './Card'
 import Loader from '@/ui/Loader'
 import { useAppSelector } from '@/store/hooks'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Match } from '@/app/models/api.matches'
+import useSocketConnectAPI from '@/lib/hooks/useSocketConnectAPI'
 export default function MatchesList() {
   const { isLoading, isError, data } = useGetMatchesQuery()
   const { filter } = useAppSelector((state) => state.filter)
-  const [filteredMatches, setFilteredMatches] = useState([] as Match[])
-  useEffect(() => {
-    switch (filter) {
-      case 'Все статусы':
-        setFilteredMatches([] as Match[])
-        break
-      default:
-        setFilteredMatches(
-          data?.data.matches.filter(
-            (match) => match.status === filter
-          ) as Match[]
-        )
+  const [matches, setMatches] = useState<Match[]>([])
+
+  const filteredMatches = useMemo(() => {
+    if (filter === 'Все статусы') {
+      return matches
     }
-  }, [filter, data?.data.matches])
+
+    return matches.filter(({ status }) => status === filter)
+  }, [filter, matches])
+
+  useEffect(() => {
+    setMatches(data?.data.matches || [])
+  }, [data?.data.matches])
+
+  const handleMessage = (matches: Match[]) => {
+    setMatches(matches)
+  }
+
+  useSocketConnectAPI({ onMessage: handleMessage, onError: () => {} })
+  if (isLoading) return <Loader />
+  if (isError)
+    return (
+      <section className="flex justify-center">
+        <p>Ошибка</p>
+      </section>
+    )
+  if (filteredMatches.length !== 0)
+    return (
+      <ul className="flex flex-col gap-4 mt-5">
+        {filteredMatches.map((match) => (
+          <Card key={match.time} match={match} />
+        ))}
+      </ul>
+    )
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : isError ? (
-        <section>
-          <p>Ошибка</p>
-        </section>
-      ) : filteredMatches.length !== 0 ? (
+      {matches.length !== 0 ? (
         <ul className="flex flex-col gap-4 mt-5">
-          {filteredMatches.map((match) => (
-            <Card key={match.time} match={match} />
-          ))}
-        </ul>
-      ) : data && data?.data.matches.length !== 0 ? (
-        <ul className="flex flex-col gap-4 mt-5">
-          {data?.data.matches.map((match) => (
+          {matches.map((match) => (
             <Card key={match.time} match={match} />
           ))}
         </ul>
       ) : (
-        <section>
+        <section className="flex justify-center">
           <p>Нет матчей</p>
         </section>
       )}

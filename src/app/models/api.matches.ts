@@ -29,6 +29,8 @@ export interface Player {
   kills: number
   username: string
 }
-
+export interface MatchesWs {
+  data: Match[]
+}
 
 

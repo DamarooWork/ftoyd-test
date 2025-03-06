@@ -1,21 +1,29 @@
 'use client'
-import { useEffect } from 'react'
-import { io } from 'socket.io-client'
+import { useEffect, useRef, useState } from 'react'
 import { WSS_URL_API_FTOYD } from '../constants'
-const socket = io(WSS_URL_API_FTOYD)
-export default function useSocketConnectAPI() {
+import { Match, MatchesWs } from '@/app/models/api.matches'
+
+interface SocketConnectAPIProps {
+  onMessage: (matches: Match[]) => void
+  onError: (error: Error) => void
+}
+
+export default function useSocketConnectAPI({ onMessage }: SocketConnectAPIProps) {
+  const [isReady, setReady] = useState(false)
+  const socketRef = useRef<WebSocket>(new WebSocket(WSS_URL_API_FTOYD))
+
   useEffect(() => {
-    socket.on('connect', () => {
-      console.log('connected to:' + WSS_URL_API_FTOYD)
+    socketRef.current.addEventListener('open', () => {
+      setReady(true)
     })
-    socket.on('connect_error', () => {
-      console.log('Connect error to:' + WSS_URL_API_FTOYD)
-    })
-    return () => {
-      socket.on('disconnect', () => {
-        console.log('Disconnected from:' + WSS_URL_API_FTOYD)
-      })
-    }
-  }, [])
-  return <></>
+    socketRef.current.addEventListener(
+      'message',
+      ({ data }: MessageEvent<string>) => {
+        const msg: MatchesWs = JSON.parse(data)
+        onMessage(msg.data)
+      }
+    )
+  }, [onMessage])
+
+  return isReady
 }

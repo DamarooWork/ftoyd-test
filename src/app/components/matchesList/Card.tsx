@@ -32,13 +32,13 @@ export default function Card({ match }: { match: Match }) {
     tlScore.fromTo(
       scoreRef.current,
       { scale: 1, opacity: 0 },
-      { scale: 1.2, duration: 0.3, opacity: 1 }
+      { scale: 1.1, duration: 0.2, opacity: 1 }
     )
     tlScore.fromTo(
       scoreRef.current,
-      { scale: 1.2 },
-      { scale: 1, ease: 'expo.inOut', duration: 0.5 },
-      '>+0.3'
+      { scale: 1.1 },
+      { scale: 1, ease: 'expo.inOut', duration: 0.2 },
+      '>+0.2'
     )
   }, [match.homeScore, match.awayScore])
 
