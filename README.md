@@ -1,4 +1,4 @@
-Тестовое задание для компании [FLOYD](https://ftoyd.com/)
+Тестовое задание для компании [FTOYD](https://ftoyd.com/)
 
 Запуск программы:
 1. git clone https://github.com/DamarooWork/ftoyd-test.git
