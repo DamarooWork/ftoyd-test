@@ -1,26 +1,20 @@
 'use client'
 import { useLazyGetMatchesQuery } from '@/store/matches/matches.api'
-import { useState } from 'react'
 
 export default function ReloadBtn() {
   const [trigger, { isLoading }] = useLazyGetMatchesQuery()
-  const [disabled, setDisabled] = useState(isLoading)
   const handleReloadBtnClick = () => {
-    setDisabled(true)
-    setTimeout(() => {
-      trigger()
-      setDisabled(isLoading)
-    }, 100)
+    trigger()
   }
   return (
     <button
-      disabled={disabled}
+      disabled={isLoading}
       onClick={handleReloadBtnClick}
       className="flex max-sm:w-full w-[204px] h-[56px] justify-center items-center font-semibold gap-3 cursor-pointer  rounded-sm p-4 bg-[#EB0237] active:bg-[#A01131] disabled:bg-[#701328] disabled:cursor-not-allowed"
     >
       <span>Обновить</span>
       <svg
-        className={`${disabled && 'animate-spin'}`}
+        className={`${isLoading && 'animate-spin'}`}
         width="26"
         height="26"
         viewBox="0 0 26 26"

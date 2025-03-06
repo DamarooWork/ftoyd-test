@@ -17,7 +17,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <head>
-          <title>FLOYD Arena - Матчи</title>
+          <title>FTOYD  Arena - Матчи</title>
           <link rel="icon/png" href="/icon.png" sizes="any" />
         </head>
         <body
