@@ -1,4 +1,4 @@
-Тестовое задание для компании [FLOYD](https://ftoyd.com/)
+Тестовое задание для компании [FTOYD](https://ftoyd.com/)
 
 Запуск программы:
 1. git clone https://github.com/DamarooWork/ftoyd-test.git
@@ -12,5 +12,7 @@
 3. Typescript
 4. GSAP
 5. reduxjs/toolkit
+6. socket.io-client
+7. react-loader-spinner
 
 Deploy: https://ftoyd-test.vercel.app/
