@@ -7,7 +7,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Match } from '@/app/models/api.matches'
 import useSocketConnectAPI from '@/lib/hooks/useSocketConnectAPI'
 export default function MatchesList() {
-  const { isLoading, isError, data } = useGetMatchesQuery()
+  const { isLoading, isError, isFetching, data } = useGetMatchesQuery()
   const { filter } = useAppSelector((state) => state.filter)
   const [matches, setMatches] = useState<Match[]>([])
 
@@ -28,7 +28,7 @@ export default function MatchesList() {
   }
 
   useSocketConnectAPI({ onMessage: handleMessage, onError: () => {} })
-  if (isLoading) return <Loader />
+  if (isLoading || isFetching) return <Loader />
   if (isError)
     return (
       <section className="flex justify-center">

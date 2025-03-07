@@ -2,19 +2,19 @@
 import { useLazyGetMatchesQuery } from '@/store/matches/matches.api'
 
 export default function ReloadBtn() {
-  const [trigger, { isLoading }] = useLazyGetMatchesQuery()
+  const [trigger, { isFetching }] = useLazyGetMatchesQuery()
   const handleReloadBtnClick = () => {
     trigger()
   }
   return (
     <button
-      disabled={isLoading}
+      disabled={isFetching}
       onClick={handleReloadBtnClick}
       className="flex max-sm:w-full w-[204px] h-[56px] justify-center items-center font-semibold gap-3 cursor-pointer  rounded-sm p-4 bg-[#EB0237] active:bg-[#A01131] disabled:bg-[#701328] disabled:cursor-not-allowed"
     >
       <span>Обновить</span>
       <svg
-        className={`${isLoading && 'animate-spin'}`}
+        className={`${isFetching && 'animate-spin'}`}
         width="26"
         height="26"
         viewBox="0 0 26 26"
