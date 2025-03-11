@@ -14,7 +14,6 @@ export default function useSocketConnectAPI({
 }: SocketConnectAPIProps) {
   const [isReady, setReady] = useState(false)
   const [waitingToReconnect, setWaitingToReconnect] = useState(false)
-
   const socketRef = useRef<WebSocket | null>(null)
   useEffect(() => {
     if (waitingToReconnect) {
@@ -54,6 +53,6 @@ export default function useSocketConnectAPI({
       if (socketRef.current !== null) socketRef.current.close()
       socketRef.current = null
     }
-  }, [waitingToReconnect])
+  }, [waitingToReconnect, onMessage, onError])
   return isReady
 }

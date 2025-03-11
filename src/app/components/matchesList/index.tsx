@@ -3,7 +3,7 @@ import { useGetMatchesQuery } from '@/store/matches/matches.api'
 import Card from './Card'
 import Loader from '@/ui/Loader'
 import { useAppSelector } from '@/store/hooks'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Match } from '@/app/models/api.matches'
 import useSocketConnectAPI from '@/lib/hooks/useSocketConnectAPI'
 
@@ -24,12 +24,12 @@ export default function MatchesList() {
     setMatches(data?.data.matches || [])
   }, [data?.data.matches])
 
-  const handleMessage = (matches: Match[]) => {
+  const handleMessage = useCallback((matches: Match[]) => {
     setMatches(matches)
-  }
-  const handleError = (e: Event) => {
+  }, [])
+  const handleError = useCallback((e: Event) => {
     console.log('Ошибка подключения к WebSockets', e)
-  }
+  }, [])
 
   useSocketConnectAPI({ onMessage: handleMessage, onError: handleError })
   if (isLoading || isFetching) return <Loader />
@@ -39,8 +39,6 @@ export default function MatchesList() {
         <p>Ошибка</p>
       </section>
     )
-  console.log(filteredMatches)
-
   return (
     <>
       {filteredMatches.length !== 0 ? (

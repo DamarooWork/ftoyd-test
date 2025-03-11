@@ -1,6 +1,5 @@
 import { CardStatusType } from '@/app/models/api.matches'
 import { useGetMatchesQuery } from '@/store/matches/matches.api'
-import { useState } from 'react'
 export interface IDropItem {
   id: number
   value: string
