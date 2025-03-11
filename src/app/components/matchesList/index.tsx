@@ -6,6 +6,7 @@ import { useAppSelector } from '@/store/hooks'
 import { useEffect, useMemo, useState } from 'react'
 import { Match } from '@/app/models/api.matches'
 import useSocketConnectAPI from '@/lib/hooks/useSocketConnectAPI'
+
 export default function MatchesList() {
   const { isLoading, isError, isFetching, data } = useGetMatchesQuery()
   const { filter } = useAppSelector((state) => state.filter)
@@ -26,8 +27,11 @@ export default function MatchesList() {
   const handleMessage = (matches: Match[]) => {
     setMatches(matches)
   }
+  const handleError = (e: Event) => {
+    console.log('Ошибка подключения к WebSockets', e)
+  }
 
-  useSocketConnectAPI({ onMessage: handleMessage, onError: () => {} })
+  useSocketConnectAPI({ onMessage: handleMessage, onError: handleError })
   if (isLoading || isFetching) return <Loader />
   if (isError)
     return (
@@ -35,19 +39,12 @@ export default function MatchesList() {
         <p>Ошибка</p>
       </section>
     )
-  if (filteredMatches.length !== 0)
-    return (
-      <ul className="flex flex-col gap-4 mt-5">
-        {filteredMatches.map((match) => (
-          <Card key={match.time} match={match} />
-        ))}
-      </ul>
-    )
+
   return (
     <>
-      {matches.length !== 0 ? (
+      {filteredMatches.length !== 0 ? (
         <ul className="flex flex-col gap-4 mt-5">
-          {matches.map((match) => (
+          {filteredMatches.map((match) => (
             <Card key={match.time} match={match} />
           ))}
         </ul>

@@ -5,25 +5,55 @@ import { Match, MatchesWs } from '@/app/models/api.matches'
 
 interface SocketConnectAPIProps {
   onMessage: (matches: Match[]) => void
-  onError: (error: Error) => void
+  onError: (error: Event) => void
 }
 
-export default function useSocketConnectAPI({ onMessage }: SocketConnectAPIProps) {
+export default function useSocketConnectAPI({
+  onMessage,
+  onError,
+}: SocketConnectAPIProps) {
   const [isReady, setReady] = useState(false)
-  const socketRef = useRef<WebSocket>(new WebSocket(WSS_URL_API_FTOYD))
+  const [waitingToReconnect, setWaitingToReconnect] = useState(false)
 
+  const socketRef = useRef<WebSocket | null>(null)
   useEffect(() => {
-    socketRef.current.addEventListener('open', () => {
-      setReady(true)
-    })
-    socketRef.current.addEventListener(
-      'message',
-      ({ data }: MessageEvent<string>) => {
-        const msg: MatchesWs = JSON.parse(data)
-        onMessage(msg.data)
+    if (waitingToReconnect) {
+      return
+    }
+    if (!socketRef.current) {
+      const socket = new WebSocket(WSS_URL_API_FTOYD)
+      socketRef.current = socket
+      socketRef.current.onerror = (e) => onError(e)
+      socketRef.current.onopen = () => {
+        setReady(true)
+        console.log('ws opened')
       }
-    )
-  }, [onMessage])
+      socketRef.current.onclose = () => {
+        if (socketRef.current) {
+          console.log('ws closed by server')
+        } else {
+          console.log('ws closed by app component unmount')
+          return
+        }
+        if (waitingToReconnect) {
+          return
+        }
+        setReady(false)
+        console.log('ws closed')
+        setWaitingToReconnect(true)
+        setTimeout(() => setWaitingToReconnect(false), 3000)
+      }
+    }
+    socketRef.current.onmessage = ({ data }: MessageEvent<string>) => {
+      const msg: MatchesWs = JSON.parse(data)
+      onMessage(msg.data)
+    }
 
+    return () => {
+      console.log('Cleanup ws')
+      if (socketRef.current !== null) socketRef.current.close()
+      socketRef.current = null
+    }
+  }, [waitingToReconnect])
   return isReady
 }
