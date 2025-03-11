@@ -5,18 +5,10 @@ import { useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 import { useDispatch } from 'react-redux'
 import { CardStatusType } from '@/app/models/api.matches'
-interface IDropItem {
-  id: number
-  value: string
-  disabled: boolean
-}
-const DropItems: IDropItem[] = [
-  { id: 0, value: 'Все статусы', disabled: false },
-  { id: 1, value: 'Live', disabled: false },
-  { id: 2, value: 'Finished', disabled: false },
-  { id: 3, value: 'Match preparing', disabled: false },
-]
+import useGetDropItems, { IDropItem } from '@/lib/hooks/useGetDropItems'
+
 export default function DropListBtn() {
+  const { DropItems } = useGetDropItems()
   const [isOpen, setIsOpen] = useState(false)
   const [status, setStatus] = useState(DropItems[0].value)
   const DropListBtnRef = useRef<HTMLElement>(null)

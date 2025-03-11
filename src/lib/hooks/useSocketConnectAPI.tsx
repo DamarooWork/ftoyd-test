@@ -41,7 +41,7 @@ export default function useSocketConnectAPI({
         setReady(false)
         console.log('ws closed')
         setWaitingToReconnect(true)
-        setTimeout(() => setWaitingToReconnect(false), 3000)
+        setTimeout(() => setWaitingToReconnect(false), 5000)
       }
     }
     socketRef.current.onmessage = ({ data }: MessageEvent<string>) => {

@@ -39,6 +39,7 @@ export default function MatchesList() {
         <p>Ошибка</p>
       </section>
     )
+  console.log(filteredMatches)
 
   return (
     <>
